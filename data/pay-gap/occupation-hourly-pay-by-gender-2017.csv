@@ -1,0 +1,26 @@
+"job_type_code","job_subtype_code","job_type","job_subtype","num_jobs_male","median_male","num_jobs_female","median_female","num_jobs","proportion_female","pay_gap"
+1,11,"Managers, directors and senior officials","Corporate managers and directors",1461,23.75,700,20.36,2161,32.39241092086997,14.273684210526316
+1,12,"Managers, directors and senior officials","Other managers and proprietors",229,14.67,207,13.59,436,47.477064220183486,7.361963190184051
+2,21,"Professional occupations","Science, research, engineering and technology professionals",1038,21.09,246,19.05,1284,19.158878504672895,9.672830725462301
+2,22,"Professional occupations","Health professionals",359,21.03,1145,17.77,1504,76.13031914893617,15.501664289110806
+2,23,"Professional occupations","Teaching and educational professionals",520,23.6,947,21.76,1467,64.5535105657805,7.796610169491524
+2,24,"Professional occupations","Business, media and public service professionals",821,20.37,586,18.65,1407,41.64889836531628,8.44378988708887
+3,31,"Associate professional and technical occupations","Science, engineering and technology associate professionals",522,14.49,171,12.13,693,24.675324675324674,16.28709454796411
+3,32,"Associate professional and technical occupations","Health and social care associate professionals",99,13.34,242,12.52,341,70.96774193548387,6.146926536731634
+3,33,"Associate professional and technical occupations","Protective service occupations",298,18.29,111,18.19,409,27.139364303178482,0.54674685620556
+3,34,"Associate professional and technical occupations","Culture, media and sports occupations",139,13.78,99,12.78,238,41.596638655462186,7.256894049346885
+3,35,"Associate professional and technical occupations","Business and public service associate professionals",1134,17.99,1032,14.87,2166,47.64542936288089,17.342968315730957
+4,41,"Administrative and secretarial occupations","Administrative occupations",713,11.81,1745,10.77,2458,70.9926769731489,8.806096528365803
+4,42,"Administrative and secretarial occupations","Secretarial and related occupations",58,9.23,571,9.92,629,90.77901430842607,-7.4756229685807085
+5,51,"Skilled trades occupations","Skilled agricultural and related trades",99,9.51,10,9.26,109,9.174311926605505,2.628811777076756
+5,52,"Skilled trades occupations","Skilled metal, electrical and electronic trades",977,13.76,30,12.07,1007,2.9791459781529297,12.281976744186041
+5,53,"Skilled trades occupations","Skilled construction and building trades",305,12.51,6,10.44,311,1.929260450160772,16.546762589928054
+5,54,"Skilled trades occupations","Textiles, printing and other skilled trades",335,9.25,170,8.59,505,33.663366336633665,7.13513513513514
+6,61,"Caring, leisure and other service occupations","Caring personal service occupations",301,9.32,1749,9.07,2050,85.3170731707317,2.682403433476399
+6,62,"Caring, leisure and other service occupations","Leisure, travel and related personal service occupations",167,9.81,274,8.63,441,62.131519274376416,12.028542303771662
+7,71,"Sales and customer service occupations","Sales occupations",578,8.48,971,8.0,1549,62.68560361523564,5.660377358490576
+7,72,"Sales and customer service occupations","Customer service occupations",230,9.83,340,9.82,570,59.64912280701754,0.10172939979653517
+8,81,"Process, plant and machine operatives","Process, plant and machine operatives",591,10.6,155,8.5,746,20.777479892761395,19.811320754716977
+8,82,"Process, plant and machine operatives","Transport and mobile machine drivers and operatives",767,10.72,34,9.2,801,4.2446941323345815,14.179104477611947
+9,91,"Elementary occupations","Elementary trades and related occupations",260,9.24,96,8.0,356,26.96629213483146,13.41991341991342
+9,92,"Elementary occupations","Elementary administration and service occupations",1258,8.58,1347,7.85,2605,51.70825335892515,8.508158508158514
