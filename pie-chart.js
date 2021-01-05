@@ -55,7 +55,7 @@ Arrays must be the same length!`);
           lastAngle, lastAngle + angles[i] + 0.001); // Hack for 0!
 
       if (labels) {
-        this.makeLegendItem(labels[i], data[i], i, colour);
+        this.makeLegendItem(labels[i], i, colour);
       }
 
       lastAngle += angles[i];
@@ -110,7 +110,7 @@ Arrays must be the same length!`);
     }
   };
 
-  this.makeLegendItem = function(label, data, i, colour) {
+  this.makeLegendItem = function(label, i, colour) {
     var x = this.x + 50 + this.diameter / 2;
     var y = this.y + (this.labelSpace * i) - this.diameter / 3;
     var boxWidth = this.labelSpace / 2;
@@ -123,8 +123,6 @@ Arrays must be the same length!`);
     noStroke();
     textAlign('left', 'center');
     textSize(12);
-    // Extend 01
-    // show label and percentage beside colour box
     text(label, x + boxWidth + 10, y + boxWidth / 2);
   };
     
