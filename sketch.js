@@ -18,6 +18,8 @@ function setup() {
   gallery.addVisual(new PayGapByJob2017());
   gallery.addVisual(new PayGapTimeSeries());
   gallery.addVisual(new ClimateChange());
+  gallery.addVisual(new MuseumVisitors());
+  
 }
 
 function draw() {
@@ -25,4 +27,5 @@ function draw() {
   if (gallery.selectedVisual != null) {
     gallery.selectedVisual.draw();
   }
+//  console.log(mouseX + ', ' + mouseY);
 }

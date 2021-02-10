@@ -18,7 +18,7 @@ function PieChart(x, y, diameter) {
     return radians;
   };
 
-  this.draw = function(data, labels, colours, title) {
+  this.draw = function(data, labels, colours, title, hint) {
 
     // Test that data is not empty and that each input array is the
     // same length.
@@ -92,11 +92,11 @@ Arrays must be the same length!`);
         this.isAngleCompared = false;
       }
         
-      // Show details on which mouse is pressing
+      // Show details when mouse pressing
       if (this.isAngleCompared) {
-        textSize(32);
-        fill(0, 102, 153);
-        text(this.areaDetail, 50, 100);
+        textSize(24);
+        fill('black');
+        text(this.areaDetail, mouseX + 10, mouseY - 10);
       }
         
     }
@@ -107,6 +107,14 @@ Arrays must be the same length!`);
       textAlign('center', 'center');
       textSize(24);
       text(title, this.x, this.y - this.diameter * 0.6);
+    }
+      
+    if (hint) {
+        fill('green');
+        noStroke();
+        textAlign('center', 'center');
+        textSize(24);
+        text(hint, this.x, this.y + this.diameter * 0.6);
     }
   };
 

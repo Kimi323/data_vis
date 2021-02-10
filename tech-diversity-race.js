@@ -68,12 +68,15 @@ function TechDiversityRace() {
     var labels = this.data.getColumn(0);
 
     // Colour to use for each category.
-    var colours = ['blue', 'red', 'green', 'pink', 'purple', 'yellow'];
+    var colours = ['powderblue', 'red', 'green', 'pink', 'purple', 'yellow'];
 
     // Make a title.
     var title = 'Employee diversity at ' + companyName;
+      
+    // Hint for users.
+    var hint = 'Click on the pie chart to see details.';
 
     // Draw the pie chart!
-    this.pie.draw(col, labels, colours, title);
+    this.pie.draw(col, labels, colours, title, hint);
   };
 }

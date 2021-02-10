@@ -42,8 +42,7 @@ function Gallery() {
       
     menuItem.mouseClicked(function(e)
     {
-        //remove selected class from any other menu-items
-        
+        //remove selected class from any other menu-items        
         var menuItems = selectAll('.menu-item');
         
         for(var i = 0; i < menuItems.length; i++)
@@ -51,11 +50,21 @@ function Gallery() {
             menuItems[i].removeClass('selected');
         }
         
+        // add selected class to selected menu-item.
         var el = select('#' + e.srcElement.id);
         el.addClass('selected');
         
         self.selectVisual(e.srcElement.id);
         
+        // If airport tab is clicked, initialize map
+        // otherwise hide the map
+//        if (e.srcElement.id == 'airports') {
+//            select('#map').removeClass('hidden');
+//            vis.initMap();
+//        } else {
+//            select('#map').removeClass('hidden');
+//            select('#map').addClass('hidden');
+//        }
     })
       
       
@@ -81,7 +90,7 @@ function Gallery() {
     return null;
   };
 
-  this.selectVisual = function(visId){
+  this.selectVisual = function(visId) {
     var visIndex = this.findVisIndex(visId);
 
     if (visIndex != null) {
