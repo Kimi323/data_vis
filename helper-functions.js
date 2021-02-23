@@ -67,7 +67,7 @@ function drawAxisLabels(xLabel, yLabel, layout) {
   // Draw x-axis label.
   text(xLabel,
        (layout.plotWidth() / 2) + layout.leftMargin,
-       layout.bottomMargin + (layout.marginSize * 1.5));
+       layout.bottomMargin + (layout.marginSize * 1.1));
 
   // Draw y-axis label.
   push();

@@ -28,7 +28,7 @@ function MuseumVisitors() {
     var museumNameList = ['Tropical Interpretive Center', 'Avila Adobe', 'Chinese American Museum', 'Firehouse Museum', 'Pico House'];
     
     // labels
-    this.labelSpace = 50;
+    this.labelSpace = 45;
     
     // Layout object to store all common plot layout parameters and
     // methods.
@@ -40,7 +40,7 @@ function MuseumVisitors() {
         leftMargin: marginSize * 2,
         rightMargin: width - marginSize/2,
         topMargin: marginSize,
-        bottomMargin: height - marginSize * 2,
+        bottomMargin: height - marginSize*2,
         pad: 5,
 
         plotWidth: function() {
@@ -89,7 +89,21 @@ function MuseumVisitors() {
 
         // Min and max visitors for mapping to canvas height.
         this.minVisitors = 0;    
-        this.maxVisitors = 40000;
+        this.maxVisitors = 42000;
+        
+        // Create a select DOM element.
+        this.select = createSelect();
+        this.select.position(410, 20);
+        // Fill the options with years.
+        var years = ["2014", "2015", "2016", "2017", "2018", "2019"];
+        for (let i = 0; i < years.length; i++) {
+          this.select.option(years[i]);
+        }
+    };
+    
+    // Remove the dropdown list when other menu-item is clicked.
+    this.destroy = function() {
+        this.select.remove();
     };
     
     this.draw = function() {
@@ -122,22 +136,12 @@ function MuseumVisitors() {
                             this.mapVisitorsToHeight.bind(this),
                             0);
         
-        // Create a select DOM element.
-        this.select = createSelect();
-        this.select.position(410, 20);
-        // Fill the options with years.
-        var years = ["2014", "2015", "2016", "2017", "2018", "2019"];
-        for (let i = 0; i < years.length; i++) {
-          this.select.option(years[i]);
-        }
-        
         // get selected value
         var year_selected = this.select.value();
-        //console.log(year_selected);
         
         // Draw bars and group data in the same month.
         // loop through all data in specific year (2014 by default).
-        for (var i = 0; i < this.endMonth - 1; i++ ) {
+        for (var i = 0; i < this.data.getRowCount(); i++ ) {
             // if the year equals selected year, 
             // get visitors for each museum in that row
             if (this.data.getRow(i).arr[0] == year_selected) {
@@ -146,13 +150,12 @@ function MuseumVisitors() {
                 for (var j = 2; j < this.data.getRow(i).arr.length; j++) {
                     var visitors = this.data.getRow(i).arr[j];
                     // calculate x posiiton for current bar to draw
-                    var x_position = this.mapMonthToWidth(i + 1) + barWidth * (j - 2);
+                    // use i mod 12 to map to the right place if i >= 12
+                    var x_position = this.mapMonthToWidth(i%12 + 1) + barWidth * (j - 2);
                     // draw the bar onto canvas
                     this.drawVerticalBar(colorList[j - 2], x_position, visitors);
                 }               
-            } else {
-                return;
-            }   
+            }
         }
         
         // Make legend item
@@ -182,10 +185,14 @@ function MuseumVisitors() {
         fill(0);
         noStroke();
         textAlign('center', 'center');
-
+        // Start a new drawing state
+        push();
+        textSize(16);
         text(this.title,
             (this.layout.plotWidth() / 2) + this.layout.leftMargin,
             this.layout.topMargin - (this.layout.marginSize / 2));
+        // Restore previous state
+        pop();
     };
     
     this.drawVerticalBar = function(color, x, visitors) {
@@ -200,7 +207,13 @@ function MuseumVisitors() {
     this.makeLegendItem = function(label, colour, n) {
         var boxWidth = this.labelSpace / 2;
         var boxHeight = this.labelSpace / 2;
-        var x = this.layout.leftMargin + n * 200;
+        // Adjust the space between specific legend items
+        if (label == "Avila Adobe" || label == "Firehouse Museum") {
+            var x = this.layout.leftMargin + n * 200 + 35;
+        } else {
+            var x = this.layout.leftMargin + n * 200;
+        }
+
         var y = this.layout.bottomMargin + boxHeight * 3;
 
         fill(colour);
