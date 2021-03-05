@@ -13,6 +13,9 @@ function ClimateChange() {
 
   var marginSize = 35;
 
+  // class variables
+  let startLabel, endLabel, startInput, endInput; 
+
   // Layout object to store all common plot layout parameters and
   // methods.
   this.layout = {
@@ -81,22 +84,51 @@ function ClimateChange() {
 
     // Create sliders to control start and end years. Default to
     // visualise full range.
-    this.startSlider = createSlider(this.minYear,
-                                    this.maxYear - 1,
-                                    this.minYear,
-                                    1);
-    this.startSlider.position(400, 10);
+//    this.startSlider = createSlider(this.minYear,
+//                                    this.maxYear - 1,
+//                                    this.minYear,
+//                                    1);
+//    this.startSlider.position(400, 10);
+//
+//    this.endSlider = createSlider(this.minYear + 1,
+//                                  this.maxYear,
+//                                  this.maxYear,
+//                                  1);
+//    this.endSlider.position(600, 10);
 
-    this.endSlider = createSlider(this.minYear + 1,
-                                  this.maxYear,
-                                  this.maxYear,
-                                  1);
-    this.endSlider.position(600, 10);
+      // Labels
+      startLabel = createElement('div', 'Start year');
+      startLabel.position(400, 0);
+      endLabel = createElement('div', 'End year');
+      endLabel.position(700, 0);
+      // Create input area for start year and end year.
+      startInput = createInput();
+      startInput.position(485, 0);
+      endInput = createInput();
+      endInput.position(785, 0);
+      // Create button to draw data between current range.
+//      button = createButton('OK');
+//      button.position(800, 0);
+//      button.mousePressed(this.updateRange);
+
+
+      
+
+      
   };
+   
+      this.updateRange = function() {
+        this.startYear = startInput.value();
+        this.endYear = endInput.value();
+      }
 
   this.destroy = function() {
-    this.startSlider.remove();
-    this.endSlider.remove();
+//    this.startSlider.remove();
+//    this.endSlider.remove();
+      startLabel.remove();
+      startInput.remove();
+      endLabel.remove();
+      endInput.remove();
   };
 
   this.draw = function() {
@@ -104,14 +136,29 @@ function ClimateChange() {
       console.log('Data not yet loaded');
       return;
     }
+    
+    
 
     // Prevent slider ranges overlapping.
-    if (this.startSlider.value() >= this.endSlider.value()) {
-      this.startSlider.value(this.endSlider.value() - 1);
-    }
-    this.startYear = this.startSlider.value();
-    this.endYear = this.endSlider.value();
+//    if (this.startSlider.value() >= this.endSlider.value()) {
+//      this.startSlider.value(this.endSlider.value() - 1);
+//    }
+//    this.startYear = this.startSlider.value();
+//    this.endYear = this.endSlider.value();
 
+    // if input is blank, set default value to min and max year.
+    if (startInput.value() == "" && endInput.value() == "") {
+        this.startYear = this.minYear;
+        this.endYear = this.maxYear;
+    } else {
+        textSize(14);
+        fill('red');
+        text('Enter valid year to see specific range', 800, 5);
+        this.startYear = startInput.value();
+        this.endYear = endInput.value();
+        noFill();
+    }
+      
     // Draw all y-axis tick labels.
     drawYAxisTickLabels(this.minTemperature,
                         this.maxTemperature,
@@ -246,4 +293,5 @@ function ClimateChange() {
     var blue = 255 - red;
     return color(red, 0, blue, 100);
   };
+    
 }

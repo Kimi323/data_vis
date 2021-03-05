@@ -55,16 +55,6 @@ function Gallery() {
         el.addClass('selected');
         
         self.selectVisual(e.srcElement.id);
-        
-        // If airport tab is clicked, initialize map
-        // otherwise hide the map
-//        if (e.srcElement.id == 'airports') {
-//            select('#map').removeClass('hidden');
-//            vis.initMap();
-//        } else {
-//            select('#map').removeClass('hidden');
-//            select('#map').addClass('hidden');
-//        }
     })
       
       
