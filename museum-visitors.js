@@ -140,8 +140,8 @@ function MuseumVisitors() {
         var year_selected = this.select.value();
         
         // Draw bars and group data in the same month.
-        // loop through all data in specific year (2014 by default).
-        for (var i = 0; i < this.data.getRowCount(); i++ ) {
+        // loop through all data in one year (2014 by default).
+        for (var i = 0; i < this.data.getRowCount(); i++) {
             // if the year equals selected year, 
             // get visitors for each museum in that row
             if (this.data.getRow(i).arr[0] == year_selected) {
